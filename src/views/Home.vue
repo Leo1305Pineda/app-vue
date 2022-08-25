@@ -3,15 +3,15 @@
    <heroHomeVue />
   <div class="bg-1">
      <specialsHomeVue />
-    <!--v-container>
+    <v-container>
       <contactHomeVue />
-    </v-container-->
+    </v-container>
   </div>
   </div>
 </template>
 
 <script>
-// import contactHomeVue from '../components/Home/contact.home.vue'
+import contactHomeVue from '../components/Home/contact.home.vue'
 // import discountHomeVue from '../components/Home/discount.home.vue'
 import heroHomeVue from '../components/Home/hero.home.vue'
 // import recommendHomeVue from '../components/Home/recommend.home.vue'
@@ -25,7 +25,7 @@ import specialsHomeVue from '../components/Home/specials.home.vue'
     components: {
       heroHomeVue,
       specialsHomeVue,
-    //  contactHomeVue,
+      contactHomeVue,
      // recommendHomeVue,
     //   discountHomeVue
     },
