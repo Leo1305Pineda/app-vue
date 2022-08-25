@@ -2,9 +2,9 @@
   <div>
     <v-card class="pa-2 card" color="white" flat>
       <div class="card-inner-1">
-        <v-row style="height: 100%; margin-bottom: 16px;" class="pa-4" no-gutters>
+        <v-row style="height: 100%; margin-bottom: 16px" class="pa-4" no-gutters>
           <v-col cols="12" class="">
-            <v-img eager :src="info.image"> </v-img>
+            <v-img class="image" eager :src="info.image"> </v-img>
           </v-col>
         </v-row>
       </div>
@@ -39,7 +39,7 @@ export default {
   line-height: 24px;
 }
 .card {
-  height: 70vh;
+  height: 50vh;
   border-radius: 45px !important;
 
   margin: 5%;
@@ -54,6 +54,9 @@ export default {
 .special-text {
   writing-mode: vertical-rl;
   letter-spacing: 7px;
+}
+.v-image__image {
+  height: 204px;
 }
 @media screen and (max-width: 600px) {
   .card {

@@ -9,26 +9,50 @@
           <v-row style="max-width: 50vw">
             <v-col cols="12" xl="6" lg="6">
               <label>nombre</label>
-              <input class="w-full mt-4" label="Nombre" v-model="user.firstname" />
+              <input
+                class="w-full mt-4"
+                label="Nombre"
+                v-model="user.firstname"
+                name="firstname"
+                type="text"
+              />
             </v-col>
             <v-col cols="12" xl="6" lg="6">
               <label>apellido</label>
-              <input class="w-full mt-4" label="Nombre" v-model="user.lastname" />
+              <input
+                class="w-full mt-4"
+                label="Nombre"
+                v-model="user.lastname"
+                name="lastname"
+                type="text"
+              />
             </v-col>
             <v-col cols="12" xl="6" lg="6">
               <label>email</label>
-              <input class="w-full mt-4" label="Nombre" v-model="user.email" />
+              <input
+                class="w-full mt-4"
+                label="Nombre"
+                v-model="user.email"
+                name="email"
+                type="email"
+              />
             </v-col>
             <v-col cols="12" xl="6" lg="6">
               <label>téléfono</label>
-              <input class="w-full mt-4" label="Nombre" v-model="user.phone" />
+              <input
+                class="w-full mt-4"
+                label="Nombre"
+                v-model="user.phone"
+                name="phone"
+                type="phone"
+              />
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12">
-              <vs-button class="ml-4 mt-2 btn-send" @click.prevent="onSubmit">
+              <button class="ml-4 mt-2 btn-send" @click.prevent="onSubmit">
                 <span>enviar</span>
-              </vs-button>
+              </button>
             </v-col>
           </v-row>
         </v-container>
@@ -53,20 +77,16 @@ export default {
   methods: {
     onSubmit() {
       console.log(this.status);
-     //  this.$validator.validateAll().then((result) => {
-       // if (result) {
-          const data = Object.assign({
-            firstname: this.user.firstname,
-            lastname: this.user.lastname,
-            email: this.user.email,
-            phone: this.user.phone,
-          });
-          console.log(data);
-          postOrPut(data)
-            .then(() => {})
-            .catch(() => {});
-    //    }
-   //   });
+      const data = Object.assign({
+        firstname: this.user.firstname,
+        lastname: this.user.lastname,
+        email: this.user.email,
+        phone: this.user.phone,
+      });
+      console.log(data);
+      postOrPut(data)
+        .then(() => {})
+        .catch(() => {});
     },
   },
   computed: {},
@@ -95,10 +115,6 @@ input:hover {
   height: 55px;
   position: absolute;
   right: 23%;
-}
-.btn-send > span {
-  position: relative;
-  top: 14px;
 }
 label {
   font-family: "Open Sans";
