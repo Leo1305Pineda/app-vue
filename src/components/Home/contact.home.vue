@@ -24,6 +24,13 @@
               <input class="w-full mt-4" label="Nombre" v-model="user.phone" />
             </v-col>
           </v-row>
+          <v-row>
+            <v-col cols="12">
+              <vs-button class="ml-4 mt-2 btn-send" @click.prevent="onSubmit">
+                <span>enviar</span>
+              </vs-button>
+            </v-col>
+          </v-row>
         </v-container>
       </div>
     </div>
@@ -37,15 +44,62 @@ const user = {
   email: "",
   phone: "",
 };
+import { postOrPut } from "../../api/requests";
+
 export default {
   data: () => ({
     user: Object.assign(user),
   }),
+  methods: {
+    onSubmit() {
+      console.log(this.status);
+     //  this.$validator.validateAll().then((result) => {
+       // if (result) {
+          const data = Object.assign({
+            firstname: this.user.firstname,
+            lastname: this.user.lastname,
+            email: this.user.email,
+            phone: this.user.phone,
+          });
+          console.log(data);
+          postOrPut(data)
+            .then(() => {})
+            .catch(() => {});
+    //    }
+   //   });
+    },
+  },
   computed: {},
 };
 </script>
 
 <style>
+input:hover {
+  border-color: #d8ad3d;
+}
+.btn-send {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 26px;
+  /* or 173% */
+
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: #d8ad3d;
+  border-radius: 50px;
+  color: white;
+  width: 170px;
+  height: 55px;
+  position: absolute;
+  right: 23%;
+}
+.btn-send > span {
+  position: relative;
+  top: 14px;
+}
 label {
   font-family: "Open Sans";
   font-style: normal;
@@ -59,7 +113,6 @@ label {
   text-transform: uppercase;
 }
 .row {
-  max-width: 50vw;
   margin-right: auto;
   margin-left: auto;
 }
